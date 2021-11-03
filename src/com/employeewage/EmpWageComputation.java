@@ -1,9 +1,9 @@
 package com.employeewage;
 
 public class EmpWageComputation {
-	
-	final static int is_full_time=1;
-	final static int is_part_time=2;
+
+	final static int is_full_time = 1;
+	final static int is_part_time = 2;
 
 	public static void main(String[] args) {
 
@@ -13,27 +13,42 @@ public class EmpWageComputation {
 		// Check Employee is Present or Absent UC-1
 		int wagePerHour = 20;
 		int hours = 0;
-		int attendanceCheck = (int) Math.floor((Math.random() * 10) % 3);
+		int wDaysPerMonth = 20;
+		int totalWage = 0;
 
-		switch(attendanceCheck) {
-		case is_full_time: System.out.println("employee is present and full time");
-				hours=8;
+		for (int days = 1; days <= wDaysPerMonth; days++) {
+
+			int attendanceCheck = (int) Math.floor((Math.random() * 10) % 3);
+
+			switch (attendanceCheck) {
+			case is_full_time:
+				System.out.println("employee is present and full time");
+				hours = 8;
 				break;
-		case is_part_time: System.out.println("employee is present and part time");
-				hours=4;
+			case is_part_time:
+				System.out.println("employee is present and part time");
+				hours = 4;
 				break;
-		default: System.out.println("employee is absent");
+			default:
+				System.out.println("employee is absent");
+				hours = 0;
 				break;
+			}
+
+			// Calculate Daily Employee Wage UC-2
+
+			int dailyEmpWage = hours * wagePerHour;
+			System.out.println("daily employee wage =" + dailyEmpWage);
+
+			// Add Part time Employee & Wage UC-3
+
+			// Solving using Switch Case Statement UC-4
+			
+			// Calculating Wages for a Month UC-5
+
+			totalWage = totalWage + dailyEmpWage;
 		}
-		
-		// Calculate Daily Employee Wage UC-2
-
-		int dailyEmpWage = hours * wagePerHour;
-		System.out.println("daily employee wage =" + dailyEmpWage);
-		
-		//Add Part time Employee & Wage UC-3
-		
-		//Solving using Switch Case Statement UC-4
+		System.out.println("total wage per month= " + totalWage);
 	}
 
 }
