@@ -13,10 +13,11 @@ public class EmpWageComputation {
 		// Check Employee is Present or Absent UC-1
 		int wagePerHour = 20;
 		int hours = 0;
-		int wDaysPerMonth = 20;
+		int wDaysPerMonth = 0;
+		int totalWorkHours = 0;
 		int totalWage = 0;
 
-		for (int days = 1; days <= wDaysPerMonth; days++) {
+		while (wDaysPerMonth < 20) {
 
 			int attendanceCheck = (int) Math.floor((Math.random() * 10) % 3);
 
@@ -38,17 +39,26 @@ public class EmpWageComputation {
 			// Calculate Daily Employee Wage UC-2
 
 			int dailyEmpWage = hours * wagePerHour;
-			System.out.println("daily employee wage =" + dailyEmpWage);
+			System.out.println("daily emp wage=" + dailyEmpWage);
 
 			// Add Part time Employee & Wage UC-3
 
 			// Solving using Switch Case Statement UC-4
-			
+
 			// Calculating Wages for a Month UC-5
 
 			totalWage = totalWage + dailyEmpWage;
+			totalWorkHours = totalWorkHours + hours;
+			wDaysPerMonth++;
+
+			// Calculate Wages till a condition of total working hours or days is reached
+			// for a month - Assume 100 hours UC-6
+
+			if (totalWorkHours > 100 || wDaysPerMonth > 20) {
+				break;
+			}
 		}
 		System.out.println("total wage per month= " + totalWage);
-	}
 
+	}
 }
